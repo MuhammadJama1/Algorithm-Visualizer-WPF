@@ -1,0 +1,84 @@
+﻿<Window x:Class="AlgorithmVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Algorithm Visualizer Pro" Height="650" Width="1050" 
+        WindowStartupLocation="CenterScreen"
+        Background="#121212">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#1E1E26" Padding="20,15" CornerRadius="0,0,20,20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="20" Direction="270" Opacity="0.4" ShadowDepth="3"/>
+            </Border.Effect>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="BtnGenerate" Content="Yeni Dizi" Width="100" Height="38" Margin="5,0"
+                        Background="#007ACC" Foreground="White" BorderThickness="0" Click="BtnGenerate_Click" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="BtnSort" Content="Bubble Sort" Width="110" Height="38" Margin="5,0"
+                        Background="#28A745" Foreground="White" BorderThickness="0" Click="BtnSort_Click" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="BtnQuickSort" Content="Quick Sort" Width="110" Height="38" Margin="5,0"
+                        Background="#FFC107" Foreground="Black" FontWeight="Bold" BorderThickness="0" Click="BtnQuickSort_Click" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button x:Name="BtnPause" Content="Duraklat" Width="100" Height="38" Margin="5,0"
+                        Background="#DC3545" Foreground="White" BorderThickness="0" Click="BtnPause_Click" Cursor="Hand">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Separator Width="1" Margin="15,5" Background="#444"/>
+
+                <StackPanel VerticalAlignment="Center" Margin="10,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Hız: " Foreground="#888" FontSize="11"/>
+                        <TextBlock x:Name="SpeedValueText" Text="50" Foreground="White" FontSize="11" FontWeight="Bold"/>
+                    </StackPanel>
+                    <Slider x:Name="SpeedSlider" Minimum="1" Maximum="100" Value="50" Width="90" 
+                            ValueChanged="SpeedSlider_ValueChanged" Cursor="Hand"/>
+                </StackPanel>
+
+                <StackPanel VerticalAlignment="Center" Margin="15,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="Boyut: " Foreground="#888" FontSize="11"/>
+                        <TextBlock x:Name="SizeValueText" Text="50" Foreground="White" FontSize="11" FontWeight="Bold"/>
+                    </StackPanel>
+                    <Slider x:Name="SizeSlider" Minimum="10" Maximum="200" Value="50" Width="90" 
+                            ValueChanged="SizeSlider_ValueChanged" Cursor="Hand"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="1" Margin="30">
+            <Border Background="#1A1A1A" CornerRadius="15" BorderBrush="#333" BorderThickness="1">
+                <Canvas x:Name="MainCanvas" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10,0,10,20"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
